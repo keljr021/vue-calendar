@@ -45,10 +45,12 @@ export default {
     }
 
     th, td {
+        font-size: 90%;
         padding: 5px;
     }    
 
     td {
+        border: none;
         cursor: pointer;
     }
 
