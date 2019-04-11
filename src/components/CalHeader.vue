@@ -1,14 +1,18 @@
 <template>
     <div class="header-box">
         <div class="button-box">
-            <button @click="$emit('prev-month')">&lt;</button>
+            <button class="btn" @click="$emit('prev-month')">
+                <i class="fas fa-angle-left"></i>
+            </button>
         </div>
         <div class="title-box">
             <span>{{ month }}</span>
             <span>{{ year }}</span>
         </div>
         <div class="button-box">
-            <button  @click="$emit('next-month')">&gt;</button>
+            <button class="btn" @click="$emit('next-month')">
+                <i class="fas fa-angle-right"></i>
+            </button>
         </div>        
     </div>
 </template>
@@ -22,7 +26,7 @@ export default {
 
 <style scoped>
     div.header-box {
-        background: #ccc;
+        background: #e9e9e9;
         padding: 15px;
         display: flex;
     }
@@ -36,6 +40,7 @@ export default {
     }
 
     span {
+        font-size: 150%;
         padding: 0 5px;
     }
 </style>

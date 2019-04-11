@@ -26,10 +26,7 @@ export default {
     methods: {
         setStartingPoint() {
 
-            //First log in today's day
-            this.targetDay = this.date.getDate();
-
-            //Store the day of the month, and day of the week (0-6)
+            //Store the day of the week (0-6)
             let firstDayOfMonth = new Date(this.date.setDate(1));
             let dow = firstDayOfMonth.getDay();
             
@@ -160,11 +157,12 @@ export default {
             console.log('clicked day: ', day);
         },
         previousMonth() {
-            
+
             //Store a new date based on the previous month
             let prevDate = new Date(this.date.setMonth(this.date.getMonth() - 1));
+            this.targetDay = (this.currentMonth === prevDate.getMonth()) ? this.currentDay : 0;
             this.date = prevDate;
-
+            
             //Date has been changed, so reload the values
             this.setStartingPoint();
             
@@ -173,6 +171,7 @@ export default {
 
             //Store a new date based on the next month
             let nextDate = new Date(this.date.setMonth(this.date.getMonth() + 1));
+            this.targetDay = (this.currentMonth === nextDate.getMonth()) ? this.currentDay : 0;
             this.date = nextDate;
 
             //Date has been changed, so reload the values
@@ -181,6 +180,13 @@ export default {
         }
     },
     mounted() {
+
+        //First log in today's day
+        this.currentDay = this.date.getDate();
+        this.currentMonth = this.date.getMonth();
+        
+        this.targetDay = this.currentDay;
+
         this.setStartingPoint();
     },
     data() {
@@ -188,7 +194,9 @@ export default {
             date: new Date(),
             month: 'Month',
             year: '20XX',
+            currentDay: 0,
             targetDay: 0,
+            currentMonth: 0,
             targetCell: 0,
             startingCell: 0,            
             daysInMonth: [],

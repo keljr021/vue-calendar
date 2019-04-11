@@ -1,6 +1,6 @@
 <template>
     <div>
-        <table>
+        <table class="table table-hover table-sm">
             <tr>
                 <th>Sun</th>
                 <th>Mon</th>
@@ -40,29 +40,13 @@ export default {
 </script>
 
 <style scoped>
-    div {
-        background: #d9d9d9;
-    }
-
     table {
         width: 100%;
     }
 
     th, td {
         padding: 5px;
-    }
-
-    tr.even {
-        background: #e9e9e9;
     }    
-
-    td {
-        cursor: pointer;
-    }
-
-    td:hover {
-        background: #c9c9c9;
-    }
 
     .highlight {
         background: yellow;
