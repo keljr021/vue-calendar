@@ -15,7 +15,7 @@
                 v-bind:class="{ 'even': week % 2 }">
                 <td v-for="day in week" 
                     v-bind:key="day.id" 
-                    v-bind:class="{ 'highlight': day === targetDay }" 
+                    v-bind:class="{ 'table-info': day === targetDay }" 
                     @click="$emit('select-day', day)">
                     {{ day }}
                 </td>        
@@ -48,9 +48,12 @@ export default {
         padding: 5px;
     }    
 
-    .highlight {
-        background: yellow;
-        font-weight: bold;
+    td {
+        cursor: pointer;
+    }
+
+    td:hover {
+        background: #e9e9e9;
     }
 
 </style>
